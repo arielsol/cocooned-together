@@ -6,9 +6,11 @@ LED_PIN = 18 # LED Data pin (BCM 18 / Physical Pin 12), must support PWM
 
 # === AUDIO ===
 AUDIO_FILE = os.path.expanduser("~/cocooned-together/audio.mp3") # File path of audio file to play
+TRACK_DURATION = 360  # Duration of audio file, in seconds - better to estimate SHORTER than longer
 MAX_VOLUME = 1.0    # Full volume scale (0.0 to 1.0)
-FADEIN_TIME = 0     # Duration of fade-in, in seconds
+FADEIN_TIME = 0.2     # Duration of fade-in, in seconds
 FADEOUT_TIME = 1.5  # Duration of fade-out, in seconds
+RESET_TIME = 3600   # Resets playback start time to beginning of file after this many seconds of no presence detected
 
 # === LIGHTS ===
 LED_COUNT = 100      # Number of LEDs on strip
@@ -18,7 +20,7 @@ LED_FADE_S = 5     # Duration of fade, in seconds
 FADE_STEPS = 100    # Resolution of fade
 
 # === MMWAVE SENSOR ===
-DETECTION_COOLDOWN = 1.0    # How often to check for presence, in seconds
+DETECTION_COOLDOWN = 0.5    # How often to check for presence, in seconds
 
 
 
