@@ -5,7 +5,7 @@ OUT_PIN = 17 # Pin listening to mmWave sensor (BCM 17 / Physical 11)
 LED_PIN = 18 # LED Data pin (BCM 18 / Physical Pin 12), must support PWM
 
 # === AUDIO ===
-AUDIO_FILE = os.path.expanduser("~/cocooned-together/audio/CocoonRemixEdit.wav") # File path of audio file to play
+AUDIO_FILE = "/home/mg/cocooned-together/audio/CocoonRemixEdit.wav" # File path of audio file to play
 TRACK_DURATION = 360  # Duration of audio file, in seconds - better to estimate SHORTER than longer
 MAX_VOLUME = 1.0    # Full volume scale (0.0 to 1.0)
 FADEIN_TIME = 0.2     # Duration of fade-in, in seconds
