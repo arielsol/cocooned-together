@@ -40,7 +40,7 @@ def play_audio(fade_in_s=global_vars.FADEIN_TIME):
         is_playing = True
 
 def stop_audio(fade_out_s=global_vars.FADEOUT_TIME):
-    global is_playing
+    global is_playing, playback_position, play_start_time
 
     elapsed_session = time.time() - play_start_time
     playback_position += elapsed_session
