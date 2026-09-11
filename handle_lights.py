@@ -43,7 +43,7 @@ def init_leds():
         strip.begin()
 
         for i in range(strip.numPixels()):
-            strip.setPixelColor(i, global_vars.LED_COLOR)
+            strip.setPixelColor(i, Color(*global_vars.LED_COLOR))
             
         strip.setBrightness(0)
         strip.show()
