@@ -7,6 +7,9 @@ is_playing = False
 
 def init_audio():
     try:
+        import os
+        os.environ['SDL_AUDIODRIVER'] = 'alsa'
+        os.environ['AUDIODEV'] = 'plughw:1,0'
         pygame.mixer.init()
         print(f"Audio mixer initialized.")
     except Exception as e:
