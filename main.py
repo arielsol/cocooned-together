@@ -35,6 +35,7 @@ def main():
                 handle_lights.turn_on_leds()
 
                 if global_vars.SHOW_PULSE:
+                    time.sleep(global_vars.LED_FADE_S)
                     handle_lights.start_all_pulses()
 
             elif not presence_detected and current_presence:
