@@ -24,7 +24,7 @@ def init_leds():
             False,                       # invert
             0,                           # brightness
             0,                           # channel
-            ws.WS2811_STRIP_RGB          # strip_type <--- ADDED HERE
+            ws.WS2811_STRIP_RBG          # strip_type <--- ADDED HERE
         )
         strip.begin()
 
