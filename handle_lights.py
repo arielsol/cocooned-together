@@ -14,16 +14,23 @@ def _led_worker():
     
     ticks = max(1, global_vars.LED_FADE_S * 33.0)
     step_size = max(1, int(global_vars.LED_BRIGHTNESS / ticks))
+    base_r, base_g, base_b = global_vars.LED_COLOR
 
     while True:
         with lock:
-            if current_brightness < target_brightness:
-                current_brightness = min(target_brightness, current_brightness + step_size)
-                strip.setBrightness(current_brightness)
-                strip.show()
-            elif current_brightness > target_brightness:
-                current_brightness = max(target_brightness, current_brightness - step_size)
-                strip.setBrightness(current_brightness)
+            if current_brightness != target_brightness:
+                if current_brightness < target_brightness:
+                    current_brightness = min(target_brightness, current_brightness + step_size)
+                else:
+                    current_brightness = max(target_brightness, current_brightness - step_size)
+
+                scale = current_brightness / global_vars.LED_BRIGHTNESS
+                r = int(base_r * scale)
+                g = int(base_g * scale)
+                b = int(base_b * scale)
+
+                for i in range(strip.numPixels()):
+                    strip.setPixelColor(i, Color(r, g, b))
                 strip.show()
 
         time.sleep(0.03)
@@ -43,9 +50,8 @@ def init_leds():
         strip.begin()
 
         for i in range(strip.numPixels()):
-            strip.setPixelColor(i, Color(*global_vars.LED_COLOR))
+            strip.setPixelColor(i, Color(0,0,0))
             
-        strip.setBrightness(0)
         strip.show()
 
         current_brightness = 0
@@ -77,5 +83,6 @@ def quit_leds():
     with lock:
         target_brightness = 0
         current_brightness = 0
-        strip.setBrightness(0)
+        for i in range(strip.numPixels()):
+                    strip.setPixelColor(i, Color(0,0,0))
         strip.show()
