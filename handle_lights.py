@@ -59,7 +59,9 @@ def _led_worker():
             elif current_brightness > target_brightness:
                 current_brightness = max(target_brightness, current_brightness - step_size)
                 strip.setBrightness(current_brightness)
-                strip.show()
+
+            if current_brightness > 0:
+                    strip.show()
 
         time.sleep(0.03)
 
