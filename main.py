@@ -34,6 +34,9 @@ def main():
                 handle_audio.play_audio()
                 handle_lights.turn_on_leds()
 
+                if global_vars.SHOW_PULSE:
+                    handle_lights.start_all_pulses()
+
             elif not presence_detected and current_presence:
                 print("Presence lost.")
                 current_presence = False
@@ -41,6 +44,7 @@ def main():
 
                 handle_audio.stop_audio()
                 handle_lights.turn_off_leds()
+                handle_lights.stop_all_pulses()
             
             time.sleep(global_vars.DETECTION_COOLDOWN)
             
