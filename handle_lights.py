@@ -1,6 +1,7 @@
 import time
 import math
 import threading
+import atexit
 from rpi_ws281x import PixelStrip, Color, ws
 import global_vars
 
@@ -26,7 +27,7 @@ def init_leds():
             ws.WS2811_STRIP_GRB          # strip_type <--- ADDED HERE
         )
         strip.begin()
-
+        
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, Color(*global_vars.LED_COLOR))
             
@@ -183,3 +184,16 @@ def quit_leds():
         current_brightness = 0
         strip.setBrightness(0)
         strip.show()
+
+def cleanup():
+    global strip
+
+    if strip is not None:
+        try:
+            strip.setBrightness(0)
+            strip.show()
+            strip._cleanup()
+        except Exception:
+            pass
+
+atexit.register(cleanup)
