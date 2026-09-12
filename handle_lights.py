@@ -1,7 +1,7 @@
 import time
 import math
 import threading
-from rpi_ws281x import PixelStrip, Color
+from rpi_ws281x import PixelStrip, Color, ws
 import global_vars
 
 strip = None
@@ -16,12 +16,14 @@ def init_leds():
 
     try:
         strip = PixelStrip(
-            global_vars.LED_COUNT,
-            global_vars.LED_PIN,
-            800000,                  # Signal frequency (800kHz)
-            10,                      # DMA channel
-            False,                   # Invert signal
-            0                        # Start at 0 brightness
+            global_vars.LED_COUNT,       # num
+            global_vars.LED_PIN,         # pin
+            800000,                      # freq_hz (800kHz)
+            10,                          # dma
+            False,                       # invert
+            0,                           # brightness
+            0,                           # channel
+            ws.WS2811_STRIP_GRB          # strip_type <--- ADDED HERE
         )
         strip.begin()
 
