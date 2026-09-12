@@ -37,13 +37,14 @@ def init_leds():
         worker_thread = threading.Thread(target=_led_worker, daemon=True)
         worker_thread.start()
 
-        print("LED strip initialized")
+        print("LED strip initialized.")
 
     except Exception as e:
         strip = None
         print(f"Failed to initialize LED strip: {e}")
 
 def _led_worker():
+    print("LED worker thread active.")
     global current_brightness
     
     ticks = max(1, global_vars.LED_FADE_S * 33.0)
@@ -63,6 +64,8 @@ def _led_worker():
         time.sleep(0.03)
 
 def _pulse_group_worker(group_id, center_pixel, radius, bpm):
+    print("LED pulse thread active.")
+
     omega = (2 * math.pi * bpm) / 60.0
     base_r, base_g, base_b = global_vars.LED_COLOR
     start_time = time.time()
@@ -130,6 +133,7 @@ def pulse_leds(center_pixel, bpm, radius=global_vars.PULSE_RADIUS, group_id="def
     thread.start()
 
 def start_all_pulses():
+    print("Starting LED pulses...")
     for i in global_vars.HEARTBEAT_DATA:
         pulse_leds(
             center_pixel=i["center_pixel"],
