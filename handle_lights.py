@@ -45,7 +45,7 @@ def init_leds():
             800000,                  # Signal frequency (800kHz)
             10,                      # DMA channel
             False,                   # Invert signal
-            0                        # Start at 0 brightness
+            255                        # Start at 0 brightness
         )
         strip.begin()
 
