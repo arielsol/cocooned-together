@@ -11,8 +11,8 @@ track_duration = global_vars.TRACK_DURATION
 def init_audio():
     try:
         import os
-        os.environ['SDL_AUDIODRIVER'] = 'alsa'
-        os.environ['AUDIODEV'] = 'plughw:1,0'
+        # os.environ['SDL_AUDIODRIVER'] = 'alsa'
+        # os.environ['AUDIODEV'] = 'plughw:1,0'
         pygame.mixer.init()
         print(f"Audio mixer initialized.")
         reset_position()
