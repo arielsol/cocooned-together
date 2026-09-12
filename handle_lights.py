@@ -61,7 +61,7 @@ def _led_worker():
                 strip.setBrightness(current_brightness)
 
             if current_brightness > 0:
-                    strip.show()
+                strip.show()
 
         time.sleep(0.03)
 
