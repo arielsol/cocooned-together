@@ -1,3 +1,6 @@
+import os
+os.environ['SDL_AUDIODRIVER'] = 'alsa'
+os.environ['AUDIODEV'] = 'hw:0,0'
 import time
 import sys
 from gpiozero import DigitalInputDevice
