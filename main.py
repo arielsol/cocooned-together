@@ -1,4 +1,4 @@
-import time 
+import time  #
 time.sleep(5)  # wait for hardware to be ready
 import os
 os.environ['SDL_AUDIODRIVER'] = 'alsa'
