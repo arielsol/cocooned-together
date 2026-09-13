@@ -5,7 +5,7 @@ OUT_PIN = 17    # Pin listening to mmWave sensor (BCM 17 / Physical 11)
 LED_PIN = 18    # LED Data pin (BCM 18 / Physical Pin 12), must support PWM
 
 # === MMWAVE SENSOR ===
-DETECTION_COOLDOWN = 0.5    # How often to check for presence, in seconds
+DETECTION_COOLDOWN = 0.5   # How often to check for presence, in seconds
 
 # === AUDIO ===
 AUDIO_FILE = "/home/mg/cocooned-together/audio/CocoonRemixEdit_260912.wav" # File path of audio file to play
