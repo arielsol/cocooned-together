@@ -10,7 +10,7 @@ DETECTION_COOLDOWN = 0.5   # How often to check for presence, in seconds
 # === AUDIO ===
 AUDIO_FILE = "/home/mg/cocooned-together/audio/CocoonRemixEdit_260912.wav" # File path of audio file to play
 TRACK_DURATION = 365    # Duration of audio file, in seconds - better to estimate SHORTER than longer
-MAX_VOLUME = 1.0        # Full volume scale (0.0 to 1.0)
+MAX_VOLUME = 0.7        # Full volume scale (0.0 to 1.0)
 FADEIN_TIME = 0.2       # Duration of fade-in, in seconds
 FADEOUT_TIME = 1.5      # Duration of fade-out, in seconds
 RESET_TIME = 3600       # Resets playback start time to beginning of file after this many seconds of no presence detected
